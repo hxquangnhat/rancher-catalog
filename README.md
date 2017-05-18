@@ -1,5 +1,7 @@
 docker run -it -p 8800:8080 -p 8899:8090 -p 3366:3306 --name rancher-test --hostname rancher-test --restart=unless-stopped -e DEFAULT_CATTLE_CATALOG_URL='{"catalogs":{"community":{"url":"https://git.rancher.io/community-catalog.git","branch":"master"},"library":{"url":"https://github.com/hxquangnhat/rancher-catalog.git","branch":"master"}}}' rancher/server:stable
 
+sudo docker run -e CATTLE_AGENT_IP="192.168.43.226"  --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/rancher:/var/lib/rancher rancher/agent:v1.2.2 http://192.168.43.214:8080/v1/scripts/06E58FC6E00766840D32:1483142400000:iRTy3eBBb6dr634pW9Oo6DJRnOk
+
 # Rancher Catalog
 
 In Rancher, one of the two automatically packaged catalogs is this repository and the [community-catalog](https://github.com/rancher/community-catalog). The **library** catalog points to a git mirror of the **master** branch of this repo.
